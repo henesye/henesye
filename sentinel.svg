@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#05070d"/>
+      <stop offset="55%" stop-color="#0d1730"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="38%" r="55%">
+      <stop offset="0%" stop-color="#7a1e1e" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#5a1414" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+      <animate attributeName="r" values="50%;58%;50%" dur="4s" repeatCount="indefinite"/>
+    </radialGradient>
+    <linearGradient id="cape" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#141d33"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="eye" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffdf8a"/>
+      <stop offset="45%" stop-color="#c9a227"/>
+      <stop offset="100%" stop-color="#7a1e1e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.95"/>
+    </radialGradient>
+    <clipPath id="peephole">
+      <circle cx="450" cy="210" r="205"/>
+    </clipPath>
+  </defs>
+
+  <rect width="900" height="420" fill="#000000"/>
+
+  <g clip-path="url(#peephole)">
+    <rect width="900" height="420" fill="url(#bg)"/>
+    <rect width="900" height="420" fill="url(#glow)"/>
+
+    <!-- cape, flutters gently -->
+    <g transform="translate(450,235)">
+      <path fill="url(#cape)" stroke="#c9a227" stroke-width="2" stroke-opacity="0.55"
+        d="M -140,-40 C -190,40 -170,140 -110,190 L 110,190 C 170,140 190,40 140,-40 C 90,-10 -90,-10 -140,-40 Z">
+        <animate attributeName="d" dur="6s" repeatCount="indefinite"
+          values="
+            M -140,-40 C -190,40 -170,140 -110,190 L 110,190 C 170,140 190,40 140,-40 C 90,-10 -90,-10 -140,-40 Z;
+            M -145,-38 C -200,50 -165,150 -105,190 L 105,190 C 165,150 200,50 145,-38 C 90,-6 -90,-6 -145,-38 Z;
+            M -140,-40 C -190,40 -170,140 -110,190 L 110,190 C 170,140 190,40 140,-40 C 90,-10 -90,-10 -140,-40 Z
+          "/>
+      </path>
+    </g>
+
+    <!-- shoulders / torso -->
+    <g transform="translate(450,235)">
+      <path fill="#05070a" d="M -95,-30 Q 0,-70 95,-30 L 85,120 Q 0,150 -85,120 Z"/>
+      <rect x="-6" y="-60" width="12" height="40" fill="#c9a227" opacity="0.85"/>
+    </g>
+
+    <!-- head -->
+    <g transform="translate(450,120)">
+      <ellipse cx="0" cy="0" rx="58" ry="66" fill="#07090f"/>
+      <g>
+        <rect x="-40" y="-6" width="30" height="9" rx="4" fill="url(#eye)">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="10" y="-6" width="30" height="9" rx="4" fill="url(#eye)">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="2.6s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+
+    <!-- smoke -->
+    <g stroke="#c9a227" stroke-opacity="0.35" fill="none" stroke-width="3" stroke-linecap="round">
+      <path d="M 470,95 C 480,70 460,55 472,30 C 482,10 465,-5 475,-25">
+        <animate attributeName="opacity" values="0;0.5;0" dur="4s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" values="0,0; -4,-30" dur="4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 480,98 C 495,78 478,60 492,36 C 502,18 486,2 498,-16">
+        <animate attributeName="opacity" values="0;0.4;0" dur="4.6s" begin="0.8s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" values="0,0; 6,-34" dur="4.6s" begin="0.8s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+
+  <rect width="900" height="420" fill="url(#vignette)"/>
+  <circle cx="450" cy="210" r="205" fill="none" stroke="#c9a227" stroke-width="3" stroke-opacity="0.6"/>
+  <circle cx="450" cy="210" r="212" fill="none" stroke="#000000" stroke-width="10" stroke-opacity="0.8"/>
+</svg>
